@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "project": "Worldle.xcodeproj",
+  "scheme": "Worldle",
+  "bundle_id": "com.jannisgrimm.Worldle",
+  "configuration": "Debug",
+  "simulator_name": "Worldle Agent Test",
+  "preferred_device_type": "com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro",
+  "runtime_major": 26,
+  "account": "None: local game, no sign-in",
+  "fixtures": "Bundled City.sampleCities; existing testing mode bypasses the daily play lock. Date and geographic score are not fixed fixtures.",
+  "network": "MapKit imagery and reverse geocoding may use Apple services; this smoke test does not verify exact score categories.",
+  "ui_test": "WorldleUITests/WorldleSmokeTests/testGuessShowsResultAndCanReplay",
+  "evidence": "~/Library/Caches/Sevolu/Worldle/runs/<unique-run>/",
+  "not_yet_covered": ["Deterministic scoring unit tests", "Daily-lock persistence regression", "Offline geocoding behavior", "Full iPad and accessibility coverage"]
+}

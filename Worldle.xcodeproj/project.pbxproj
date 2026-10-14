@@ -6,6 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Worldle simulator smoke test target */
+        AA0000000000000000000002 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = WorldleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+        AA0000000000000000000003 = {isa = PBXFileSystemSynchronizedRootGroup; path = WorldleUITests; sourceTree = "<group>"; };
+        AA0000000000000000000004 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+        AA0000000000000000000005 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+        AA0000000000000000000006 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+        AA000000000000000000000B = {isa = PBXContainerItemProxy; containerPortal = AFDEE2882E50A18300557D1C; proxyType = 1; remoteGlobalIDString = AFDEE28F2E50A18300557D1C; remoteInfo = Worldle; };
+        AA000000000000000000000A = {isa = PBXTargetDependency; target = AFDEE28F2E50A18300557D1C; targetProxy = AA000000000000000000000B; };
+        AA0000000000000000000001 = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = AA0000000000000000000007;
+            buildPhases = (AA0000000000000000000004, AA0000000000000000000005, AA0000000000000000000006);
+            buildRules = ();
+            dependencies = (AA000000000000000000000A);
+            fileSystemSynchronizedGroups = (AA0000000000000000000003);
+            name = WorldleUITests;
+            packageProductDependencies = ();
+            productName = WorldleUITests;
+            productReference = AA0000000000000000000002;
+            productType = "com.apple.product-type.bundle.ui-testing";
+        };
+        AA0000000000000000000008 = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 26.0; PRODUCT_BUNDLE_IDENTIFIER = com.jannisgrimm.WorldleUITests; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; TEST_TARGET_NAME = Worldle;}; name = Debug; };
+        AA0000000000000000000009 = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 26.0; PRODUCT_BUNDLE_IDENTIFIER = com.jannisgrimm.WorldleUITests; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; TEST_TARGET_NAME = Worldle;}; name = Release; };
+        AA0000000000000000000007 = {isa = XCConfigurationList; buildConfigurations = (AA0000000000000000000008, AA0000000000000000000009); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+
+
 /* Begin PBXFileReference section */
 		AFDEE2902E50A18300557D1C /* Worldle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Worldle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -33,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				AFDEE2922E50A18300557D1C /* Worldle */,
+                AA0000000000000000000003 /* WorldleUITests */,
 				AFDEE2912E50A18300557D1C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				AFDEE2902E50A18300557D1C /* Worldle.app */,
+                AA0000000000000000000002 /* WorldleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +128,7 @@
 			projectRoot = "";
 			targets = (
 				AFDEE28F2E50A18300557D1C /* Worldle */,
+                AA0000000000000000000001 /* WorldleUITests */,
 			);
 		};
 /* End PBXProject section */
