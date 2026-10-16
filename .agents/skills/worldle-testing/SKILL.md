@@ -7,7 +7,7 @@ description: Supply Worldle's simulator setup, commands and game scenarios for b
 
 Work from the repository root (three levels above this skill directory). Read [repository guidance](../../../AGENTS.md), [the test profile](../../../config/testing.json) and [the testing guide](../../../docs/testing.md).
 
-For the common baseline → UI verification → evidence workflow, read [shared simulator UI testing](../../../../../../../../Workspace/Skills/simulator-ui-testing/SKILL.md) (`shared.skills:simulator-ui-testing`). Resolve it through the company catalog or the installed `simulator-ui-testing` skill if this checkout is elsewhere. An independent clone can still execute the complete local smoke procedure in docs/testing.md; report shared guidance as unavailable if it cannot be read.
+For the common baseline → UI verification → evidence workflow, read [shared simulator UI testing](../../../../../../../../Shared/Skills/simulator-ui-testing/SKILL.md) (`shared.skills:simulator-ui-testing`). Resolve it through the company catalog or the installed `simulator-ui-testing` skill if this checkout is elsewhere. An independent clone can still execute the complete local smoke procedure in docs/testing.md; report shared guidance as unavailable if it cannot be read.
 
 ## Worldle inputs
 
