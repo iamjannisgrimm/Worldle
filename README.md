@@ -147,3 +147,13 @@ python3 scripts/simulator.py launch --udid "${WORLDLE_SIMULATOR_UDID:?Set the pr
 ```
 
 `build` compiles the app for the selected simulator. `launch` performs its own build, installs the app and starts it; running `build` first is optional. These simulator builds disable signing and use a fresh run-specific DerivedData directory. Neither command proves the guessing flow works.
+
+### Run the UI smoke test
+
+```sh
+python3 scripts/simulator.py test --udid "${WORLDLE_SIMULATOR_UDID:?Set the printed UDID}"
+```
+
+[WorldleSmokeTests](WorldleUITests/WorldleSmokeTests.swift) launches a new process, enables testing mode through the heading, taps a point within the map and confirms the guess. It checks for **Share Result** and **Play Again**, captures the result, replays, and checks that the result and old confirmation control disappear. It also captures the reset state.
+
+The helper runs the profile’s single test with parallel testing disabled. Success requires Xcode to exit successfully and its result summary to report executed passing tests with no failures or skips. A build alone or an empty test run does not satisfy this check.
