@@ -87,3 +87,18 @@ The current implementation stores daily completion, not a saved guess, score his
 [City.sampleCities](Worldle/Models/City.swift) is the active list of **24 cities**, each with a name, country, continent and coordinate. Both daily selection and random testing rounds use this Swift array. [Resources/cities.json](Worldle/Resources/cities.json) exists, but the current daily-city service does not load it.
 
 Changing the array’s order or length changes the deterministic daily sequence. Review coordinates and country/continent strings together with the scoring service when maintaining this data.
+
+## Code layout
+
+| Location | Responsibility |
+| --- | --- |
+| [Worldle/App](Worldle/App/) | App entry point and root view |
+| [Worldle/Models](Worldle/Models/) | City data, game state, scores, constants and extensions |
+| [Worldle/ViewModels](Worldle/ViewModels/) | Game actions and published state |
+| [Worldle/Services](Worldle/Services/) | Daily selection and geographic scoring |
+| [Worldle/Views](Worldle/Views/) | Main screen, map and result components |
+| [Worldle/Resources](Worldle/Resources/) | Bundled assets and resource files |
+| [WorldleUITests](WorldleUITests/) | XCTest UI smoke journey |
+| [scripts](scripts/) / [config](config/) | Simulator helper and its versioned profile |
+
+The main screen uses `RealGlobeView`; the alternate views in [Views/Legacy](Worldle/Views/Legacy/) are not its active map implementation.
