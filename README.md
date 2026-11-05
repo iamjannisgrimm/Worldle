@@ -102,3 +102,9 @@ Changing the array’s order or length changes the deterministic daily sequence.
 | [scripts](scripts/) / [config](config/) | Simulator helper and its versioned profile |
 
 The main screen uses `RealGlobeView`; the alternate views in [Views/Legacy](Worldle/Views/Legacy/) are not its active map implementation.
+
+### State and service boundaries
+
+[ContentView](Worldle/Views/ContentView.swift) owns a `GameViewModel` as a `StateObject`. The main-actor [view model](Worldle/ViewModels/GameViewModel.swift) publishes [GameState](Worldle/Models/GameState.swift), handles guesses and replay, and coordinates preferences and services.
+
+The initializer accepts `DailyCityServiceProtocol`, `LocationServiceProtocol` and `UserDefaults`, providing seams for isolated tests. The production defaults use shared services and standard preferences. See [ARCHITECTURE.md](Worldle/ARCHITECTURE.md) for the repository’s layer conventions; these seams do not imply unit-test coverage already exists.
