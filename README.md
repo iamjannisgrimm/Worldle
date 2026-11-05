@@ -25,3 +25,9 @@ For physical-device development, select your development team in Signing & Capab
 The city heading gives the target name; the map is where you choose its location. A tap places a red **Your Guess** pin. Tap elsewhere to replace it before submitting. **Confirm Guess** appears once a pin is placed and the daily challenge is available.
 
 Confirmation calculates the distance to the target coordinates and then determines the score category. Country/continent lookup is asynchronous, so the result may take longer when geocoding is needed.
+
+### Globe controls
+
+The active [RealGlobeView](Worldle/Views/Components/RealGlobeView.swift) wraps an `MKMapView` using satellite flyover imagery. Pan and zoom to explore; rotation and pitch are enabled, with a compass and scale. The map does not show or track the player’s current location.
+
+The visible pin is the selected guess. The target city is not added as a map annotation by this view, and starting another test round clears the previous pin.
