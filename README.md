@@ -176,3 +176,14 @@ The helper writes unique run directories beneath `~/Library/Caches/Sevolu/Worldl
 | `test-summary.json` | Parsed test summary when extraction succeeds |
 
 Inspect the receipt and result bundle before citing a pass. Failed runs retain their evidence; a missing summary is a failure, not permission to infer success from the build log. Cache artifacts are disposable and should not be committed.
+
+### Screenshots and video
+
+```sh
+python3 scripts/simulator.py screenshot --udid "${WORLDLE_SIMULATOR_UDID:?Set the printed UDID}"
+python3 scripts/simulator.py record --udid "${WORLDLE_SIMULATOR_UDID:?Set the printed UDID}" --seconds 20
+```
+
+These write `screen.png` or `interaction.mov` to a new run directory. Recording accepts 1–120 seconds and stops its own recorder. Start it before interacting, then review the captured behavior before sharing evidence. The helper captures pixels; it does not tap controls or upload files.
+
+Interactive exploration requires a working Simulator UI-control provider in the current session. Treat that as separate from helper availability and the automated XCUITest.
