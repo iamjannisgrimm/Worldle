@@ -37,3 +37,17 @@ The visible pin is the selected guess. The target city is not added as a map ann
 [DailyCityService](Worldle/Services/DailyCityService.swift) deterministically selects a city from the bundled sample list using the number of calendar days since January 1, 2024. It uses `Calendar.current`, rather than a server clock or an explicit shared UTC rollover.
 
 Normal play records one completed guess for the date and displays **You’ve played today!** afterward. A fresh view model loads that date’s city and play status. The current main view does not wire an automatic midnight refresh; do not assume a running session switches challenges at midnight.
+
+### Score categories
+
+Categories are checked in this order. Distances are calculated with Core Location and converted from meters to kilometers.
+
+| Category | Condition | Points |
+| --- | --- | ---: |
+| Perfect! | At most 15 km from the target | 5,000 |
+| Excellent! | More than 15 km and at most 100 km | 3,000 |
+| Same Country | Outside those distances, with a matching country | 1,500 |
+| Same Continent | No country match, with a matching continent | 500 |
+| Miss | No earlier category matches | 100 |
+
+Thresholds live in [Constants.swift](Worldle/Models/Constants.swift); labels and points live in [ScoreCategory.swift](Worldle/Models/ScoreCategory.swift).
