@@ -1,12 +1,5 @@
-# Worldle App
+# Worldle
 
-A daily city guessing game.
+A daily city-location guessing game built with SwiftUI and MapKit. Read the city name, explore the globe and place a pin where you think it belongs. The app grades the guess by distance, country and continent.
 
-Currently waiting for this to be releasable on the appstore.
-Once on RC will be uploaded.
-
-## Development
-
-See [AGENTS.md](AGENTS.md) for repository guidance and [docs/testing.md](docs/testing.md) for the simulator workflow. The shared Worldle scheme includes a small UI smoke test; `python3 scripts/simulator.py doctor` checks prerequisites. The current project targets iOS 26.
-
-This checkout belongs to [Sevolu / Worldle](../../AGENTS.md). Its repo-owned skill is in `.agents/skills/worldle-testing`; it is also explicitly linked from the company registry so an agent starting at Sevolu can discover it.
+This repository contains the app, its shared Xcode scheme and a simulator smoke test. No game account or project-specific API key is required.
