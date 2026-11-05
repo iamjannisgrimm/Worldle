@@ -31,3 +31,9 @@ Confirmation calculates the distance to the target coordinates and then determin
 The active [RealGlobeView](Worldle/Views/Components/RealGlobeView.swift) wraps an `MKMapView` using satellite flyover imagery. Pan and zoom to explore; rotation and pitch are enabled, with a compass and scale. The map does not show or track the player’s current location.
 
 The visible pin is the selected guess. The target city is not added as a map annotation by this view, and starting another test round clears the previous pin.
+
+### Daily challenge
+
+[DailyCityService](Worldle/Services/DailyCityService.swift) deterministically selects a city from the bundled sample list using the number of calendar days since January 1, 2024. It uses `Calendar.current`, rather than a server clock or an explicit shared UTC rollover.
+
+Normal play records one completed guess for the date and displays **You’ve played today!** afterward. A fresh view model loads that date’s city and play status. The current main view does not wire an automatic midnight refresh; do not assume a running session switches challenges at midnight.
