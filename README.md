@@ -138,3 +138,12 @@ export WORLDLE_SIMULATOR_UDID='paste-the-printed-UDID-here'
 ```
 
 The helper validates both the device name and runtime for later actions; do not substitute an unrelated booted simulator.
+
+### Build and launch
+
+```sh
+python3 scripts/simulator.py build --udid "${WORLDLE_SIMULATOR_UDID:?Set the printed UDID}"
+python3 scripts/simulator.py launch --udid "${WORLDLE_SIMULATOR_UDID:?Set the printed UDID}"
+```
+
+`build` compiles the app for the selected simulator. `launch` performs its own build, installs the app and starts it; running `build` first is optional. These simulator builds disable signing and use a fresh run-specific DerivedData directory. Neither command proves the guessing flow works.
