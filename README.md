@@ -17,3 +17,11 @@ The older [source README](Worldle/README.md) says iOS 16; that platform claim is
 3. Read **Today’s City**, tap a location on the globe and choose **Confirm Guess**.
 
 For physical-device development, select your development team in Signing & Capabilities before running on the connected device. Simulator checks use the dedicated device described below; signing and App Store distribution are separate release work.
+
+## Playing
+
+### Make a guess
+
+The city heading gives the target name; the map is where you choose its location. A tap places a red **Your Guess** pin. Tap elsewhere to replace it before submitting. **Confirm Guess** appears once a pin is placed and the daily challenge is available.
+
+Confirmation calculates the distance to the target coordinates and then determines the score category. Country/continent lookup is asynchronous, so the result may take longer when geocoding is needed.
