@@ -108,3 +108,11 @@ The main screen uses `RealGlobeView`; the alternate views in [Views/Legacy](Worl
 [ContentView](Worldle/Views/ContentView.swift) owns a `GameViewModel` as a `StateObject`. The main-actor [view model](Worldle/ViewModels/GameViewModel.swift) publishes [GameState](Worldle/Models/GameState.swift), handles guesses and replay, and coordinates preferences and services.
 
 The initializer accepts `DailyCityServiceProtocol`, `LocationServiceProtocol` and `UserDefaults`, providing seams for isolated tests. The production defaults use shared services and standard preferences. See [ARCHITECTURE.md](Worldle/ARCHITECTURE.md) for the repository’s layer conventions; these seams do not imply unit-test coverage already exists.
+
+## Development and verification
+
+### Test profile
+
+[config/testing.json](config/testing.json) owns the project, scheme, bundle identifier, simulator selection, smoke-test identifier and coverage gaps. The current profile uses **Worldle Agent Test**, an **iPhone 17 Pro** device type and an **iOS 26** runtime. The app bundle identifier is `com.jannisgrimm.Worldle`.
+
+[docs/testing.md](docs/testing.md) describes the full workflow. Run the commands below from the repository root. Keep generated builds and evidence outside the source checkout.
