@@ -116,3 +116,11 @@ The initializer accepts `DailyCityServiceProtocol`, `LocationServiceProtocol` an
 [config/testing.json](config/testing.json) owns the project, scheme, bundle identifier, simulator selection, smoke-test identifier and coverage gaps. The current profile uses **Worldle Agent Test**, an **iPhone 17 Pro** device type and an **iOS 26** runtime. The app bundle identifier is `com.jannisgrimm.Worldle`.
 
 [docs/testing.md](docs/testing.md) describes the full workflow. Run the commands below from the repository root. Keep generated builds and evidence outside the source checkout.
+
+### Check prerequisites
+
+```sh
+python3 scripts/simulator.py doctor
+```
+
+`doctor` reports Xcode, Python, project availability and matching simulator runtimes. It is read-only. A successful result establishes those prerequisites; it does not run a build, exercise the game or verify interactive Simulator control.
