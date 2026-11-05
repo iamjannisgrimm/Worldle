@@ -81,3 +81,9 @@ Testing mode starts off in a new app process and is not persisted by the current
 Normal completed guesses write a `UserDefaults` boolean under `played_yyyy-MM-dd`, using the date formatter in [Extensions.swift](Worldle/Models/Extensions.swift). Testing-mode guesses do not write that completion flag.
 
 The current implementation stores daily completion, not a saved guess, score history or account-synced game. Relaunching can retain the daily lock without restoring the previous result sheet. Preserve those preferences when testing; the smoke flow uses testing mode instead of deleting player data.
+
+## City data
+
+[City.sampleCities](Worldle/Models/City.swift) is the active list of **24 cities**, each with a name, country, continent and coordinate. Both daily selection and random testing rounds use this Swift array. [Resources/cities.json](Worldle/Resources/cities.json) exists, but the current daily-city service does not load it.
+
+Changing the array’s order or length changes the deterministic daily sequence. Review coordinates and country/continent strings together with the scoring service when maintaining this data.
