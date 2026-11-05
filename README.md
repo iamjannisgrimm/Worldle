@@ -157,3 +157,9 @@ python3 scripts/simulator.py test --udid "${WORLDLE_SIMULATOR_UDID:?Set the prin
 [WorldleSmokeTests](WorldleUITests/WorldleSmokeTests.swift) launches a new process, enables testing mode through the heading, taps a point within the map and confirms the guess. It checks for **Share Result** and **Play Again**, captures the result, replays, and checks that the result and old confirmation control disappear. It also captures the reset state.
 
 The helper runs the profile’s single test with parallel testing disabled. Success requires Xcode to exit successfully and its result summary to report executed passing tests with no failures or skips. A build alone or an empty test run does not satisfy this check.
+
+### Coverage limits
+
+The smoke test uses the bundled cities and existing testing mode. Its date, target city, chosen geographic result and Apple service responses are not fixed fixtures. It checks the user journey rather than an exact score category.
+
+The profile explicitly lists missing deterministic scoring tests, daily-lock persistence regression, offline geocoding checks, and full iPad/accessibility coverage. Use isolated service and preference inputs when adding that coverage; a passing iPhone smoke test does not establish it.
