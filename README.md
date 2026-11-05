@@ -4,6 +4,8 @@ A daily city-location guessing game built with SwiftUI and MapKit. Read the city
 
 This repository contains the app, its shared Xcode scheme and a simulator smoke test. No game account or project-specific API key is required.
 
+[Requirements](#requirements) · [Quick start](#quick-start) · [Playing](#playing) · [City data](#city-data) · [Code layout](#code-layout) · [Development and verification](#development-and-verification)
+
 ## Requirements
 
 The checked-in [Xcode project](Worldle.xcodeproj) targets **iOS 26.0**. Use a Mac with full Xcode capable of building that target, plus a compatible simulator runtime or physical device. The simulator helper also requires Python 3. MapKit imagery and reverse geocoding may use Apple services.
@@ -200,3 +202,11 @@ Interactive exploration requires a working Simulator UI-control provider in the 
 | A test exits unsuccessfully | Read its `result.json`, `build.log` and any available xcresult before retrying. |
 
 The helper bounds build/test execution to 600 seconds and records a timeout as exit code 124. Preserve that failed run when investigating rather than reporting a later build as evidence that the original journey passed.
+
+## Contributing and documentation
+
+Start with [AGENTS.md](AGENTS.md) for repository instructions and [docs/testing.md](docs/testing.md) for verification. The repo-owned [worldle-testing skill](.agents/skills/worldle-testing/SKILL.md) connects the profile and smoke workflow for agents; the local guide also works in a standalone clone without the surrounding company workspace.
+
+For documentation edits, check local links, command references and the diff. For app behavior changes, reproduce the relevant flow and run appropriate build/UI checks, retaining results for the actual revision. Keep release signing and distribution separate from simulator verification.
+
+This README describes the checked-in implementation, not a claim of current App Store availability or a fresh device-verification result. Keep the test profile, its guide and source behavior aligned when updating the documentation.
