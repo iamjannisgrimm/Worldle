@@ -57,3 +57,9 @@ Thresholds live in [Constants.swift](Worldle/Models/Constants.swift); labels and
 [LocationService](Worldle/Services/LocationService.swift) awards the two distance categories before reverse geocoding. For farther guesses, it compares the returned country name case-insensitively with the target, then checks a country-to-continent table with approximate geographic bounds as a fallback.
 
 Failed or unavailable geocoding falls through to **Miss**. Country naming, approximate continent boundaries and Apple service availability can therefore affect results. A Miss does not always establish that the player chose the wrong continent, and full offline play is not verified by the smoke test.
+
+### Results
+
+The result sheet displays the category title, its description and a target visualization. The model retains distance and points, but the current sheet does not display those numeric values. [ResultSheet](Worldle/Views/Components/ResultSheet.swift) and [TargetView](Worldle/Views/Components/TargetView.swift) own this presentation.
+
+Normal play ends with **See you tomorrow!** Testing mode replaces that message with **Play Again**.
