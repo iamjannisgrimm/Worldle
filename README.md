@@ -187,3 +187,16 @@ python3 scripts/simulator.py record --udid "${WORLDLE_SIMULATOR_UDID:?Set the pr
 These write `screen.png` or `interaction.mov` to a new run directory. Recording accepts 1–120 seconds and stops its own recorder. Start it before interacting, then review the captured behavior before sharing evidence. The helper captures pixels; it does not tap controls or upload files.
 
 Interactive exploration requires a working Simulator UI-control provider in the current session. Treat that as separate from helper availability and the automated XCUITest.
+
+### Troubleshooting
+
+| Symptom | First check |
+| --- | --- |
+| `doctor` cannot find a matching runtime | Install an available iOS 26 simulator runtime in Xcode, then rerun the check. |
+| `prepare` reports duplicate names | Inspect the named Worldle simulators and resolve the conflict explicitly; do not erase unrelated devices. |
+| A command rejects the UDID | Use the exact dedicated-device UDID from `prepare` and verify its runtime against the profile. |
+| Confirm Guess does not appear | Place a pin and check the daily lock; the smoke scenario enables testing mode through the heading. |
+| Results are delayed or unexpectedly Miss | Check map/geocoding connectivity and the scoring fallback described above. |
+| A test exits unsuccessfully | Read its `result.json`, `build.log` and any available xcresult before retrying. |
+
+The helper bounds build/test execution to 600 seconds and records a timeout as exit code 124. Preserve that failed run when investigating rather than reporting a later build as evidence that the original journey passed.
