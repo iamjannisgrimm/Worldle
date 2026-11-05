@@ -63,3 +63,9 @@ Failed or unavailable geocoding falls through to **Miss**. Country naming, appro
 The result sheet displays the category title, its description and a target visualization. The model retains distance and points, but the current sheet does not display those numeric values. [ResultSheet](Worldle/Views/Components/ResultSheet.swift) and [TargetView](Worldle/Views/Components/TargetView.swift) own this presentation.
 
 Normal play ends with **See you tomorrow!** Testing mode replaces that message with **Play Again**.
+
+### Sharing
+
+**Share Result** opens the native share sheet. Its payload is text containing the Worldle name, the current formatted date and a category-specific emoji target. It does not include the city name, guessed coordinates, numeric distance or points.
+
+Opening the share sheet does not automatically send anything. The automated smoke test checks that the share button exists; it does not send a result or validate a sharing destination.
