@@ -69,3 +69,9 @@ Normal play ends with **See you tomorrow!** Testing mode replaces that message w
 **Share Result** opens the native share sheet. Its payload is text containing the Worldle name, the current formatted date and a category-specific emoji target. It does not include the city name, guessed coordinates, numeric distance or points.
 
 Opening the share sheet does not automatically send anything. The automated smoke test checks that the share button exists; it does not send a result or validate a sharing destination.
+
+### Testing mode and replay
+
+Tap the city heading once to toggle the app’s existing testing mode. It bypasses the daily lock without clearing stored play preferences. **Play Again** then resets the result and guess and selects a random city from the same sample list; a repeat city is possible.
+
+Testing mode starts off in a new app process and is not persisted by the current view model. Turning it off rechecks the stored daily flag. This is existing app behavior, not a special launch argument added by the UI test.
