@@ -124,3 +124,17 @@ python3 scripts/simulator.py doctor
 ```
 
 `doctor` reports Xcode, Python, project availability and matching simulator runtimes. It is read-only. A successful result establishes those prerequisites; it does not run a build, exercise the game or verify interactive Simulator control.
+
+### Prepare the simulator
+
+```sh
+python3 scripts/simulator.py prepare
+```
+
+`prepare` creates or reuses the named test simulator, prints its UDID and boots it without erasing data. It rejects duplicate matching names or an incompatible runtime. Copy the printed UDID into a shell variable before the commands that follow:
+
+```sh
+export WORLDLE_SIMULATOR_UDID='paste-the-printed-UDID-here'
+```
+
+The helper validates both the device name and runtime for later actions; do not substitute an unrelated booted simulator.
