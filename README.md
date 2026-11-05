@@ -51,3 +51,9 @@ Categories are checked in this order. Distances are calculated with Core Locatio
 | Miss | No earlier category matches | 100 |
 
 Thresholds live in [Constants.swift](Worldle/Models/Constants.swift); labels and points live in [ScoreCategory.swift](Worldle/Models/ScoreCategory.swift).
+
+### Geographic scoring and network access
+
+[LocationService](Worldle/Services/LocationService.swift) awards the two distance categories before reverse geocoding. For farther guesses, it compares the returned country name case-insensitively with the target, then checks a country-to-continent table with approximate geographic bounds as a fallback.
+
+Failed or unavailable geocoding falls through to **Miss**. Country naming, approximate continent boundaries and Apple service availability can therefore affect results. A Miss does not always establish that the player chose the wrong continent, and full offline play is not verified by the smoke test.
