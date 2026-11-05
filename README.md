@@ -75,3 +75,9 @@ Opening the share sheet does not automatically send anything. The automated smok
 Tap the city heading once to toggle the app’s existing testing mode. It bypasses the daily lock without clearing stored play preferences. **Play Again** then resets the result and guess and selects a random city from the same sample list; a repeat city is possible.
 
 Testing mode starts off in a new app process and is not persisted by the current view model. Turning it off rechecks the stored daily flag. This is existing app behavior, not a special launch argument added by the UI test.
+
+### Saved play status
+
+Normal completed guesses write a `UserDefaults` boolean under `played_yyyy-MM-dd`, using the date formatter in [Extensions.swift](Worldle/Models/Extensions.swift). Testing-mode guesses do not write that completion flag.
+
+The current implementation stores daily completion, not a saved guess, score history or account-synced game. Relaunching can retain the daily lock without restoring the previous result sheet. Preserve those preferences when testing; the smoke flow uses testing mode instead of deleting player data.
