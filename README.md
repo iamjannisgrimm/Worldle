@@ -163,3 +163,16 @@ The helper runs the profile’s single test with parallel testing disabled. Succ
 The smoke test uses the bundled cities and existing testing mode. Its date, target city, chosen geographic result and Apple service responses are not fixed fixtures. It checks the user journey rather than an exact score category.
 
 The profile explicitly lists missing deterministic scoring tests, daily-lock persistence regression, offline geocoding checks, and full iPad/accessibility coverage. Use isolated service and preference inputs when adding that coverage; a passing iPhone smoke test does not establish it.
+
+### Evidence
+
+The helper writes unique run directories beneath `~/Library/Caches/Sevolu/Worldle/runs/`. Build/test receipts record the source revision, dirty state, command, simulator UDID/runtime, exit code and pass status.
+
+| Artifact | Purpose |
+| --- | --- |
+| `build.log` | Xcode build/test output |
+| `result.json` | Run identity, exit status and validation receipt |
+| `tests.xcresult` | Test results and attached screenshots for test runs |
+| `test-summary.json` | Parsed test summary when extraction succeeds |
+
+Inspect the receipt and result bundle before citing a pass. Failed runs retain their evidence; a missing summary is a failure, not permission to infer success from the build log. Cache artifacts are disposable and should not be committed.
